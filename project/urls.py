@@ -20,9 +20,5 @@ from scrumboard import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path(r'scrumboard/', include('scrumboard.urls')),
-    path('register/', views.registerPage, name="register"),
-    path('login/', views.loginPage, name="login"),
-    path('', views.home, name="home"),
-    path('logout/', views.logoutUser, name="logout")
+    path('', include('scrumboard.urls'))
 ]
