@@ -90,7 +90,7 @@ setInterval(function(){
             {
                 console.log(response.messages[key].user)
 
-                var temp="<div class='container darker'><b>"+  response.messages[key].username +"</b><p>"+response.messages[key].value+"</p><span class='time-left'>"+response.messages[key].date+"</span></div>";
+                var temp="<div class='container darker'><b>"+  response.messages[key].username +"</b><p>"+response.messages[key].value  + "</p><span class='time-left'>"+response.messages[key].date+"</span></div>";
                 $("#display").append(temp);
             }
         },
@@ -143,6 +143,7 @@ setInterval(function(){
         <input type="hidden" name="room_id" id="room_id" value="{{room_details.id}}"/>
         <input type="text" name="message" id="message" width="100px" />
         <input type="submit" value="Send">
+        <input type="file" name="image" id="image" class="custom-file-input"/>
     </form>
     <a href="{% url 'logout' %}" class="ml-2"><button class="logout_btn">Logout</button></a>
 </div>
@@ -161,6 +162,7 @@ setInterval(function(){
           username:$('#username').val(),
           room_id:$('#room_id').val(),
           message:$('#message').val(),
+          image:$('#image').val(),
         csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
       },
       success: function(data){

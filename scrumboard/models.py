@@ -26,3 +26,4 @@ class Message(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     username = models.CharField(max_length=1000000, default="")
     room = models.CharField(max_length=1000000,default="defaultroom")
+    image = models.ImageField(null=True, blank=True, upload_to="media/")

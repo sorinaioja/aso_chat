@@ -100,7 +100,10 @@ def send(request):
         room_id = request.POST['room_id']
         user = request.user
 
-        new_message = Message.objects.create(value=message,username=username, user=user, room=room_id)
+        image = request.POST['image']
+        #form_data = Myform(request.POST, request.FILES)
+
+        new_message = Message.objects.create(value=message,username=username, user=user, room=room_id, image=image)
         new_message.save()
         return HttpResponse('Message sent successfully')
     else:
